@@ -1,0 +1,23 @@
+<h1>Leave List</h1>
+<a href="{% url 'leave_create' %}">Add Leave</a>
+
+<table>
+    <tr>
+        <th>Leave Schedules</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for leave in leaves %}
+    <tr>
+        <td>{{leave.leave_type}}</td>
+        <td>{{leave.department}}</td>
+        <td><a href="{% url 'leave' leave.id %}">View</a></td>
+        <td><a href="{% url 'leave_update' leave.id %}">Edit</a></td>
+        <td><a href="">Delete</a></td>
+    </tr>
+    {% empty %}
+
+     <h3>No Leave Scheduled</h3>
+
+    {% endfor %}
+</table>
